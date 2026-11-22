@@ -1,4 +1,4 @@
-# Stephen B. (SB.) — Portfolio Website
+# Stephen Bula. (SB.) — Portfolio Website
 
 A bold, retro-editorial, and high-contrast personal portfolio website built with modern HTML5, CSS3, and JavaScript.
 
