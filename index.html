@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Stephen Bula</title>
+  
+  <!-- Designer Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="intro-active">
+
+  <!-- ========================================================= -->
+  <!-- 1. CINEMATIC INTRO SEQUENCE                               -->
+  <!-- ========================================================= -->
+  <div id="intro-overlay" class="intro-overlay">
+    <!-- Top & Bottom shutter curtains that close & meet in middle -->
+    <div class="intro-shutter shutter-top" id="shutter-top"></div>
+    <div class="intro-shutter shutter-bottom" id="shutter-bottom"></div>
+
+    <!-- Intro Stage Container -->
+    <div class="intro-stage" id="intro-stage">
+      <!-- Background Picture Container -->
+      <div class="intro-bg-image" id="intro-bg-image"></div>
+      
+      <!-- Big Center Typography Container -->
+      <div class="intro-text-wrapper">
+        <h1 class="intro-word" id="intro-word"></h1>
+      </div>
+    </div>
+
+    <!-- Skip Button -->
+    <button type="button" class="intro-skip-btn" id="intro-skip-btn" title="Skip animation (or press ESC)">
+      <span>SKIP INTRO</span> ✕
+    </button>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 2. MAIN NAVIGATION                                        -->
+  <!-- ========================================================= -->
+  <header class="main-header" id="main-header">
+    <div class="header-container">
+      <!-- Left: SB. logo linking to landing page top -->
+      <a href="#hero" class="brand-logo" id="brand-logo">SB.</a>
+
+      <!-- Right: Navigation links & Download Resume Button -->
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#stack" class="nav-link">Stack</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li class="nav-resume-item">
+            <!-- DOWNLOAD RESUME BUTTON:
+                 Downloads assets/Resume.pdf straight to the visitor's device (no preview tab).
+                 The `download` value is the file name the visitor will get. -->
+            <a href="assets/Resume.pdf" download="Stephen_Bula_Resume.pdf" class="btn-resume-download" id="btn-resume-download">
+              <span class="btn-text">DOWNLOAD RESUME</span>
+              <svg class="download-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- 3. LANDING PAGE HERO SECTION (Reference: 4th picture)     -->
+  <!-- ========================================================= -->
+  <section class="hero-section" id="hero">
+    <div class="hero-canvas">
+
+      <!-- Top Left Big Bold: HELLO -->
+      <div class="hero-word-hello">
+        <h1 class="bold-hero-title">HELLO</h1>
+      </div>
+
+      <!-- Bottom Left Big Bold: MEET -->
+      <div class="hero-word-meet">
+        <h1 class="bold-hero-title">MEET</h1>
+      </div>
+
+      <!-- Center: Stephen's Cutout Photo with Artistic Red Contour Accents -->
+      <div class="hero-portrait-wrapper">
+        <!-- SVG Hand-drawn Contour Flares / Doodles -->
+        <svg class="hero-doodle-aura" viewBox="0 0 540 482" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <!-- slightly rough, hand-drawn brush edge -->
+            <filter id="rough-brush" x="-10%" y="-10%" width="120%" height="120%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="4" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+          <g stroke="#EE3826" stroke-linecap="round" fill="none" filter="url(#rough-brush)">
+            <!-- Lines traced from the reference design -->
+            <path d="M 408.1 381.2 C 408.2 380.8 408.4 380.0 408.6 379.2 C 408.9 378.5 409.1 377.5 409.4 376.6 C 409.7 375.7 410.0 374.7 410.3 373.7 C 410.6 372.7 411.0 371.7 411.3 370.6 C 411.7 369.6 412.0 368.6 412.4 367.6 C 412.8 366.6 413.1 365.5 413.5 364.5 C 413.9 363.5 414.3 362.5 414.6 361.4 C 415.0 360.4 415.4 359.4 415.7 358.4 C 416.1 357.3 416.5 356.3 416.8 355.3 C 417.2 354.3 417.5 353.3 417.8 352.2 C 418.2 351.2 418.5 350.2 418.8 349.2 C 419.1 348.1 419.4 347.1 419.7 346.1 C 420.0 345.1 420.3 344.0 420.5 343.0 C 420.8 342.0 421.0 341.0 421.2 340.0 C 421.4 338.9 421.6 337.9 421.7 336.9 C 421.9 335.9 422.0 334.8 422.1 333.8 C 422.1 332.8 422.2 331.8 422.2 330.7 C 422.2 329.7 422.1 328.7 422.1 327.7 C 422.0 326.7 421.9 325.6 421.7 324.6 C 421.5 323.6 421.3 322.6 421.1 321.5 C 420.8 320.5 420.5 319.5 420.2 318.5 C 419.8 317.4 419.4 316.4 419.0 315.4 C 418.7 314.4 418.2 313.4 417.9 312.3 C 417.5 311.3 417.2 310.3 416.9 309.3 C 416.6 308.2 416.4 307.2 416.2 306.2 C 416.0 305.2 415.8 304.1 415.7 303.1 C 415.5 302.1 415.4 301.1 415.4 300.1 C 415.3 299.0 415.3 298.0 415.3 297.0 C 415.3 296.0 415.3 294.9 415.3 293.9 C 415.4 292.9 415.4 291.9 415.5 290.8 C 415.5 289.8 415.6 288.8 415.6 287.8 C 415.7 286.8 415.7 285.7 415.7 284.7 C 415.7 283.7 415.7 282.7 415.7 281.6 C 415.7 280.6 415.7 279.6 415.7 278.6 C 415.7 277.5 415.7 276.5 415.8 275.5 C 415.8 274.5 415.8 273.5 415.8 272.4 C 415.9 271.4 415.9 270.4 416.0 269.4 C 416.0 268.3 416.1 267.3 416.2 266.3 C 416.3 265.3 416.3 264.2 416.4 263.2 C 416.5 262.2 416.5 261.2 416.6 260.2 C 416.7 259.1 416.8 258.1 416.8 257.1 C 416.9 256.1 416.9 255.0 417.0 254.0 C 417.0 253.0 417.0 252.0 417.1 250.9 C 417.1 249.9 417.1 248.9 417.1 247.9 C 417.2 246.9 417.2 245.8 417.2 244.8 C 417.2 243.8 417.3 242.8 417.3 241.7 C 417.3 240.7 417.3 239.7 417.3 238.7 C 417.3 237.6 417.3 236.6 417.3 235.6 C 417.4 234.6 417.4 233.5 417.4 232.5 C 417.4 231.5 417.3 230.5 417.2 229.5 C 417.2 228.4 417.0 227.4 416.9 226.4 C 416.7 225.4 416.5 224.3 416.3 223.3 C 416.1 222.3 415.8 221.3 415.6 220.2 C 415.3 219.2 415.0 218.2 414.8 217.2 C 414.5 216.2 414.2 215.1 413.9 214.1 C 413.6 213.1 413.3 212.1 413.0 211.0 C 412.6 210.0 412.2 209.0 411.8 208.0 C 411.3 207.0 410.8 205.9 410.3 204.9 C 409.7 203.9 409.1 202.9 408.4 202.0 C 407.7 201.0 406.9 200.0 406.2 199.1 C 405.4 198.1 404.6 197.2 403.8 196.2 C 403.0 195.3 402.1 194.3 401.3 193.4 C 400.5 192.5 399.7 191.5 399.0 190.6 C 398.2 189.6 397.5 188.7 396.8 187.7 C 396.1 186.8 395.5 185.8 394.9 184.8 C 394.3 183.9 393.8 182.9 393.2 181.8 C 392.7 180.8 392.2 179.8 391.8 178.8 C 391.3 177.8 390.9 176.8 390.4 175.7 C 390.0 174.7 389.5 173.7 389.1 172.7 C 388.6 171.7 388.2 170.6 387.7 169.6 C 387.3 168.6 386.8 167.6 386.4 166.5 C 386.0 165.5 385.5 164.5 385.1 163.5 C 384.6 162.4 384.2 161.4 383.7 160.4 C 383.3 159.4 382.9 158.4 382.4 157.3 C 382.0 156.3 381.6 155.3 381.2 154.3 C 380.8 153.2 380.4 152.2 380.0 151.2 C 379.7 150.2 379.3 149.1 379.0 148.1 C 378.7 147.1 378.4 146.1 378.1 145.1 C 377.9 144.0 377.7 143.0 377.4 142.0 C 377.1 141.0 376.9 140.0 376.6 139.0 C 376.3 138.1 375.9 137.2 375.6 136.4 C 375.2 135.6 374.8 134.8 374.5 134.3 C 374.2 133.7 373.8 133.1 373.7 132.9" stroke-width="3.2"/>
+            <path d="M 153.8 139.1 C 153.7 139.5 153.4 140.3 153.1 141.1 C 152.9 141.8 152.6 142.8 152.4 143.7 C 152.1 144.6 151.8 145.6 151.5 146.6 C 151.2 147.6 150.9 148.6 150.7 149.7 C 150.4 150.7 150.1 151.7 149.8 152.7 C 149.6 153.7 149.3 154.8 149.1 155.8 C 148.9 156.8 148.7 157.8 148.5 158.9 C 148.4 159.9 148.2 160.9 148.1 161.9 C 148.0 163.0 147.9 164.0 147.9 165.0 C 147.8 166.0 147.8 167.0 147.8 168.1 C 147.7 169.1 147.7 170.1 147.7 171.1 C 147.7 172.2 147.7 173.2 147.7 174.2 C 147.7 175.2 147.7 176.3 147.7 177.3 C 147.7 178.3 147.7 179.3 147.8 180.3 C 147.8 181.4 147.8 182.4 147.8 183.4 C 147.9 184.4 147.9 185.5 148.0 186.5 C 148.1 187.5 148.2 188.5 148.3 189.6 C 148.4 190.6 148.5 191.6 148.6 192.6 C 148.7 193.6 148.8 194.7 148.9 195.7 C 149.0 196.7 149.1 197.7 149.2 198.8 C 149.3 199.8 149.4 200.8 149.5 201.8 C 149.5 202.9 149.6 203.9 149.6 204.9 C 149.7 205.9 149.7 206.9 149.7 208.0 C 149.7 209.0 149.7 210.0 149.7 211.0 C 149.7 212.1 149.7 213.1 149.6 214.1 C 149.6 215.1 149.5 216.2 149.5 217.2 C 149.4 218.2 149.4 219.2 149.3 220.2 C 149.2 221.3 149.1 222.3 149.0 223.3 C 148.9 224.3 148.9 225.4 148.7 226.4 C 148.6 227.4 148.5 228.4 148.4 229.5 C 148.2 230.5 148.1 231.5 147.9 232.5 C 147.8 233.5 147.6 234.6 147.5 235.6 C 147.3 236.6 147.1 237.6 147.0 238.7 C 146.8 239.7 146.6 240.7 146.4 241.7 C 146.2 242.8 145.9 243.8 145.7 244.8 C 145.5 245.8 145.3 246.9 145.0 247.9 C 144.8 248.9 144.5 249.9 144.3 250.9 C 144.0 252.0 143.7 253.0 143.4 254.0 C 143.1 255.0 142.7 256.1 142.4 257.1 C 142.0 258.1 141.6 259.1 141.3 260.2 C 140.9 261.2 140.5 262.2 140.1 263.2 C 139.7 264.2 139.3 265.3 138.9 266.3 C 138.5 267.3 138.0 268.3 137.6 269.2 C 137.2 270.1 136.8 271.0 136.5 271.8 C 136.2 272.5 135.8 273.4 135.7 273.7" stroke-width="3.2"/>
+            <path d="M 108.0 251.9 C 108.0 252.3 108.1 253.1 108.2 253.9 C 108.3 254.6 108.4 255.6 108.5 256.5 C 108.6 257.4 108.8 258.4 108.9 259.4 C 109.1 260.4 109.2 261.4 109.4 262.5 C 109.6 263.5 109.8 264.5 110.0 265.5 C 110.2 266.5 110.5 267.6 110.7 268.6 C 111.0 269.6 111.3 270.6 111.5 271.7 C 111.8 272.7 112.0 273.7 112.3 274.7 C 112.6 275.8 112.8 276.8 113.0 277.8 C 113.3 278.8 113.5 279.8 113.8 280.9 C 114.0 281.9 114.2 282.9 114.5 283.9 C 114.7 285.0 115.0 286.0 115.2 287.0 C 115.5 288.0 115.8 289.1 116.0 290.1 C 116.3 291.1 116.5 292.1 116.8 293.1 C 117.0 294.2 117.2 295.2 117.5 296.2 C 117.7 297.2 117.9 298.3 118.1 299.3 C 118.3 300.3 118.4 301.3 118.6 302.4 C 118.8 303.4 119.0 304.4 119.1 305.4 C 119.3 306.4 119.5 307.5 119.7 308.5 C 119.8 309.5 120.0 310.5 120.1 311.6 C 120.3 312.6 120.4 313.6 120.5 314.6 C 120.6 315.7 120.7 316.7 120.8 317.7 C 120.9 318.7 120.9 319.7 121.0 320.8 C 121.1 321.8 121.1 322.8 121.2 323.8 C 121.2 324.8 121.3 325.8 121.4 326.7 C 121.5 327.7 121.6 328.6 121.7 329.3 C 121.8 330.1 122.0 331.0 122.1 331.3" stroke-width="3.2"/>
+            <path d="M 86.2 268.6 C 86.1 268.4 85.7 267.6 85.5 266.9 C 85.3 266.2 85.0 265.3 84.8 264.5 C 84.6 263.6 84.4 262.6 84.2 261.6 C 84.1 260.6 83.9 259.6 83.9 258.6 C 83.8 257.6 83.8 256.6 83.8 255.5 C 83.9 254.5 84.0 253.5 84.1 252.5 C 84.2 251.5 84.4 250.4 84.6 249.4 C 84.7 248.4 85.0 247.4 85.2 246.3 C 85.5 245.3 85.8 244.3 86.1 243.3 C 86.4 242.2 86.8 241.2 87.1 240.2 C 87.5 239.2 87.8 238.2 88.2 237.2 C 88.6 236.2 89.0 235.2 89.5 234.2 C 89.9 233.2 90.4 232.2 90.9 231.3 C 91.3 230.3 91.9 229.4 92.4 228.4 C 93.0 227.4 93.5 226.5 94.1 225.5 C 94.6 224.5 95.1 223.5 95.6 222.5 C 96.1 221.5 96.6 220.5 97.0 219.5 C 97.5 218.5 97.9 217.4 98.4 216.4 C 98.8 215.4 99.2 214.4 99.6 213.3 C 100.0 212.3 100.3 211.3 100.7 210.3 C 101.0 209.3 101.3 208.2 101.6 207.2 C 101.8 206.2 102.0 205.2 102.2 204.1 C 102.4 203.1 102.6 202.1 102.7 201.1 C 102.8 200.0 102.9 199.0 102.9 198.0 C 102.9 197.0 102.9 196.0 102.9 195.0 C 102.9 194.0 102.8 193.0 102.7 192.1 C 102.6 191.3 102.5 190.4 102.4 189.7 C 102.3 189.0 102.1 188.3 102.1 188.0" stroke-width="3.2"/>
+            <path d="M 95.7 294.9 C 95.8 295.2 96.1 296.1 96.4 296.9 C 96.7 297.6 97.0 298.5 97.3 299.5 C 97.6 300.4 97.9 301.4 98.3 302.4 C 98.6 303.4 99.0 304.4 99.3 305.4 C 99.7 306.4 100.0 307.5 100.4 308.5 C 100.8 309.5 101.1 310.5 101.5 311.6 C 101.8 312.6 102.2 313.6 102.5 314.6 C 102.8 315.7 103.2 316.7 103.5 317.7 C 103.8 318.7 104.0 319.7 104.3 320.8 C 104.6 321.8 104.8 322.8 105.1 323.8 C 105.3 324.8 105.6 325.8 105.8 326.7 C 106.0 327.7 106.3 328.6 106.5 329.3 C 106.7 330.1 107.0 331.0 107.1 331.3" stroke-width="3.2"/>
+            <path d="M 107.7 216.6 C 107.7 217.0 107.7 217.8 107.6 218.6 C 107.6 219.3 107.5 220.3 107.5 221.2 C 107.4 222.1 107.4 223.1 107.3 224.1 C 107.3 225.1 107.2 226.1 107.2 227.2 C 107.1 228.2 107.1 229.2 107.1 230.2 C 107.1 231.2 107.1 232.3 107.1 233.3 C 107.1 234.3 107.1 235.3 107.1 236.2 C 107.1 237.1 107.1 238.0 107.1 238.8 C 107.1 239.5 107.1 240.4 107.1 240.7" stroke-width="3.2"/>
+            <path d="M 436.8 319.0 C 436.8 318.7 436.6 317.8 436.5 317.1 C 436.5 316.3 436.3 315.4 436.3 314.5 C 436.2 313.5 436.1 312.5 436.0 311.5 C 435.9 310.5 435.8 309.5 435.7 308.5 C 435.7 307.5 435.6 306.4 435.5 305.4 C 435.4 304.4 435.4 303.4 435.3 302.4 C 435.3 301.3 435.2 300.3 435.2 299.3 C 435.1 298.3 435.1 297.2 435.1 296.2 C 435.1 295.2 435.1 294.2 435.1 293.1 C 435.1 292.1 435.1 291.1 435.2 290.1 C 435.3 289.1 435.3 288.0 435.5 287.0 C 435.6 286.0 435.7 285.0 435.9 283.9 C 436.0 282.9 436.2 281.9 436.4 280.9 C 436.6 279.8 436.9 278.8 437.1 277.8 C 437.3 276.8 437.5 275.8 437.7 274.8 C 437.9 273.8 438.1 272.8 438.3 271.9 C 438.4 271.1 438.6 270.2 438.7 269.5 C 438.8 268.8 438.9 268.1 438.9 267.8" stroke-width="3.2"/>
+            <path d="M 431.5 441.2 C 431.3 441.3 430.5 441.7 429.9 441.9 C 429.2 442.2 428.4 442.6 427.6 442.7 C 426.9 442.9 426.0 443.0 425.2 442.9 C 424.4 442.8 423.6 442.5 422.9 442.0 C 422.2 441.5 421.6 440.8 421.0 440.0 C 420.4 439.2 419.9 438.2 419.5 437.3 C 419.1 436.3 418.7 435.3 418.4 434.3 C 418.2 433.3 418.0 432.3 417.8 431.3 C 417.6 430.2 417.5 429.2 417.4 428.2 C 417.3 427.2 417.2 426.2 417.2 425.1 C 417.2 424.1 417.2 423.1 417.2 422.1 C 417.2 421.0 417.3 420.0 417.4 419.0 C 417.5 418.0 417.6 416.9 417.7 415.9 C 417.8 414.9 418.0 413.9 418.2 412.8 C 418.4 411.8 418.6 410.8 418.8 409.8 C 419.0 408.8 419.2 407.7 419.5 406.7 C 419.7 405.7 420.0 404.7 420.2 403.6 C 420.5 402.6 420.8 401.6 421.0 400.6 C 421.3 399.5 421.5 398.5 421.8 397.5 C 422.1 396.5 422.4 395.5 422.7 394.4 C 423.0 393.4 423.3 392.4 423.6 391.4 C 424.0 390.3 424.3 389.3 424.7 388.3 C 425.0 387.3 425.4 386.2 425.8 385.2 C 426.2 384.2 426.7 383.2 427.1 382.2 C 427.5 381.1 427.9 380.1 428.3 379.1 C 428.7 378.1 429.1 377.0 429.5 376.0 C 429.8 375.0 430.2 374.0 430.5 372.9 C 430.8 371.9 431.2 370.9 431.5 369.9 C 431.8 368.9 432.1 367.8 432.4 366.8 C 432.7 365.8 433.0 364.8 433.3 363.7 C 433.6 362.7 433.9 361.7 434.3 360.7 C 434.6 359.6 434.9 358.6 435.2 357.6 C 435.5 356.6 435.8 355.6 436.1 354.5 C 436.4 353.5 436.6 352.5 436.8 351.5 C 437.1 350.4 437.3 349.4 437.4 348.4 C 437.6 347.4 437.7 346.3 437.8 345.3 C 437.9 344.3 438.0 343.3 438.1 342.3 C 438.2 341.2 438.2 340.2 438.3 339.2 C 438.3 338.2 438.4 337.1 438.4 336.1 C 438.4 335.1 438.4 334.1 438.4 333.1 C 438.4 332.1 438.3 331.1 438.3 330.1 C 438.3 329.2 438.2 328.3 438.2 327.5 C 438.1 326.8 438.0 325.9 438.0 325.6" stroke-width="3.2"/>
+            <path d="M 372.5 471.8 C 372.2 471.5 371.6 470.7 371.1 470.0 C 370.5 469.3 369.9 468.5 369.2 467.6 C 368.6 466.8 367.9 465.8 367.3 464.9 C 366.7 463.9 366.1 462.9 365.5 461.9 C 365.0 460.9 364.5 459.9 364.0 458.9 C 363.6 457.9 363.2 456.8 362.8 455.8 C 362.4 454.8 362.1 453.8 361.8 452.8 C 361.5 451.7 361.2 450.7 360.9 449.7 C 360.6 448.7 360.3 447.6 360.1 446.6 C 359.8 445.6 359.6 444.6 359.4 443.5 C 359.2 442.5 359.1 441.5 358.9 440.5 C 358.8 439.5 358.6 438.4 358.5 437.4 C 358.4 436.4 358.3 435.4 358.2 434.3 C 358.1 433.3 358.1 432.3 358.0 431.3 C 358.0 430.2 357.9 429.2 357.9 428.2 C 357.8 427.2 357.8 426.2 357.7 425.1 C 357.6 424.1 357.6 423.1 357.5 422.1 C 357.4 421.0 357.4 420.0 357.3 419.0 C 357.3 418.0 357.2 416.9 357.2 415.9 C 357.1 414.9 357.1 413.9 357.1 412.8 C 357.0 411.8 357.0 410.8 357.0 409.8 C 356.9 408.8 356.9 407.7 356.8 406.7 C 356.8 405.7 356.7 404.7 356.7 403.6 C 356.6 402.6 356.6 401.6 356.5 400.6 C 356.5 399.5 356.5 398.5 356.5 397.5 C 356.6 396.5 356.6 395.5 356.7 394.4 C 356.7 393.4 356.8 392.4 356.9 391.4 C 356.9 390.3 357.0 389.3 357.1 388.3 C 357.2 387.3 357.3 386.2 357.4 385.2 C 357.5 384.2 357.6 383.2 357.7 382.2 C 357.8 381.1 357.9 380.1 358.0 379.1 C 358.0 378.1 358.1 377.0 358.3 376.0 C 358.4 375.0 358.5 374.0 358.7 372.9 C 358.8 371.9 359.1 370.9 359.3 369.9 C 359.5 368.9 359.7 367.8 359.9 366.8 C 360.1 365.8 360.3 364.8 360.5 363.7 C 360.7 362.7 360.9 361.7 361.1 360.7 C 361.3 359.6 361.5 358.6 361.7 357.6 C 361.9 356.6 362.1 355.6 362.3 354.5 C 362.5 353.5 362.7 352.5 362.9 351.5 C 363.1 350.4 363.4 349.4 363.6 348.4 C 363.8 347.4 364.1 346.3 364.3 345.3 C 364.5 344.3 364.8 343.3 364.9 342.3 C 365.0 341.3 365.2 340.3 365.2 339.3 C 365.2 338.4 365.1 337.4 364.9 336.5 C 364.7 335.6 364.4 334.7 364.0 333.8 C 363.6 332.9 363.1 332.0 362.6 331.1 C 362.2 330.2 361.7 329.3 361.2 328.3 C 360.7 327.3 360.2 326.3 359.8 325.3 C 359.4 324.3 358.9 323.3 358.5 322.3 C 358.1 321.3 357.8 320.3 357.4 319.2 C 357.1 318.2 356.8 317.2 356.5 316.2 C 356.2 315.1 355.9 314.1 355.6 313.1 C 355.4 312.1 355.1 311.1 354.9 310.0 C 354.7 309.0 354.5 308.0 354.3 307.0 C 354.1 305.9 353.9 304.9 353.8 303.9 C 353.6 302.9 353.4 301.8 353.3 300.8 C 353.1 299.8 353.0 298.8 352.9 297.8 C 352.7 296.8 352.6 295.7 352.4 294.8 C 352.3 293.8 352.2 292.9 352.1 292.0 C 352.0 291.2 351.9 290.4 351.9 289.7 C 351.8 289.1 351.8 288.5 351.8 288.2" stroke-width="3.2"/>
+            <path d="M 360.9 288.0 C 361.0 288.3 361.2 289.2 361.5 289.9 C 361.7 290.7 362.0 291.6 362.2 292.5 C 362.5 293.5 362.8 294.5 363.1 295.5 C 363.4 296.5 363.7 297.5 364.0 298.5 C 364.3 299.5 364.5 300.6 364.8 301.6 C 365.1 302.6 365.4 303.6 365.7 304.7 C 366.0 305.7 366.3 306.7 366.6 307.7 C 366.9 308.7 367.2 309.8 367.5 310.8 C 367.7 311.8 368.0 312.8 368.2 313.9 C 368.4 314.9 368.6 315.9 368.7 316.9 C 368.9 318.0 369.0 319.0 369.1 320.0 C 369.2 321.0 369.3 322.0 369.3 323.1 C 369.3 324.1 369.3 325.1 369.2 326.1 C 369.1 327.1 368.9 328.0 368.7 328.9 C 368.5 329.8 368.3 330.7 368.0 331.4 C 367.8 332.1 367.4 332.8 367.3 333.1" stroke-width="3.2"/>
+            <path d="M 409.5 496.3 C 409.5 495.9 409.4 495.1 409.3 494.3 C 409.3 493.6 409.2 492.6 409.2 491.7 C 409.1 490.8 409.1 489.8 409.1 488.8 C 409.1 487.8 409.1 486.8 409.1 485.7 C 409.1 484.7 409.1 483.7 409.1 482.7 C 409.1 481.7 409.1 480.6 409.1 479.6 C 409.1 478.6 409.1 477.6 409.0 476.5 C 409.0 475.5 409.0 474.5 409.0 473.5 C 408.9 472.4 408.9 471.4 408.8 470.4 C 408.8 469.4 408.7 468.4 408.6 467.3 C 408.5 466.3 408.5 465.3 408.4 464.3 C 408.3 463.2 408.2 462.2 408.0 461.2 C 407.9 460.2 407.8 459.1 407.6 458.1 C 407.4 457.1 407.2 456.1 406.9 455.1 C 406.7 454.0 406.4 453.0 406.1 452.0 C 405.8 451.0 405.5 449.9 405.2 448.9 C 404.8 447.9 404.5 446.9 404.1 445.8 C 403.8 444.8 403.4 443.8 403.0 442.8 C 402.6 441.8 402.3 440.7 401.8 439.7 C 401.4 438.7 401.0 437.7 400.5 436.7 C 400.0 435.7 399.5 434.7 399.0 433.8 C 398.5 432.9 397.9 432.0 397.3 431.1 C 396.7 430.2 396.1 429.3 395.5 428.4 C 394.9 427.5 394.3 426.6 393.7 425.7 C 393.1 424.7 392.5 423.7 391.8 422.8 C 391.1 421.8 390.4 420.8 389.7 419.7 C 389.0 418.7 388.2 417.7 387.4 416.7 C 386.7 415.7 385.9 414.6 385.1 413.6 C 384.3 412.6 383.5 411.6 382.7 410.5 C 381.9 409.5 381.1 408.5 380.4 407.5 C 379.7 406.5 379.0 405.4 378.4 404.4 C 377.8 403.4 377.2 402.4 376.7 401.3 C 376.1 400.3 375.6 399.3 375.2 398.3 C 374.7 397.2 374.3 396.2 373.9 395.2 C 373.5 394.2 373.1 393.2 372.8 392.1 C 372.5 391.1 372.2 390.1 371.9 389.1 C 371.6 388.0 371.4 387.0 371.1 386.0 C 370.9 385.0 370.7 383.9 370.5 382.9 C 370.4 381.9 370.2 380.9 370.1 379.9 C 370.0 378.8 369.9 377.8 369.9 376.8 C 369.8 375.8 369.8 374.7 369.8 373.7 C 369.8 372.7 369.8 371.7 369.9 370.6 C 369.9 369.6 370.0 368.6 370.1 367.6 C 370.2 366.6 370.3 365.5 370.4 364.5 C 370.6 363.5 370.7 362.5 370.9 361.4 C 371.1 360.4 371.2 359.4 371.4 358.4 C 371.6 357.3 371.9 356.3 372.1 355.3 C 372.4 354.3 372.7 353.3 373.1 352.3 C 373.4 351.3 373.8 350.3 374.3 349.3 C 374.8 348.4 375.3 347.5 375.9 346.8 C 376.5 346.0 377.3 345.4 378.0 344.9 C 378.7 344.4 379.4 344.2 380.1 343.9 C 380.8 343.7 381.5 343.7 382.0 343.7 C 382.6 343.6 383.1 343.7 383.4 343.7" stroke-width="3.2"/>
+            <path d="M 135.2 452.5 C 135.3 452.2 135.4 451.3 135.6 450.6 C 135.7 449.8 135.9 448.9 136.1 448.0 C 136.3 447.1 136.6 446.0 136.9 445.0 C 137.1 444.1 137.4 443.0 137.6 442.0 C 137.9 441.0 138.1 440.0 138.4 438.9 C 138.6 437.9 138.8 436.9 139.1 435.9 C 139.3 434.8 139.5 433.8 139.7 432.8 C 139.9 431.8 140.1 430.8 140.3 429.7 C 140.5 428.7 140.6 427.7 140.8 426.7 C 140.9 425.6 141.1 424.6 141.2 423.6 C 141.3 422.6 141.4 421.5 141.6 420.5 C 141.7 419.5 141.8 418.5 141.9 417.5 C 142.0 416.4 142.1 415.4 142.2 414.4 C 142.3 413.4 142.4 412.3 142.5 411.3 C 142.6 410.3 142.7 409.3 142.8 408.2 C 142.9 407.2 142.9 406.2 143.0 405.2 C 143.0 404.2 143.0 403.1 143.0 402.1 C 143.1 401.1 143.1 400.1 143.1 399.0 C 143.1 398.0 143.1 397.0 143.0 396.0 C 143.0 394.9 143.0 393.9 142.9 392.9 C 142.9 391.9 142.8 390.9 142.7 389.8 C 142.6 388.8 142.5 387.8 142.4 386.8 C 142.2 385.7 142.1 384.7 141.9 383.7 C 141.8 382.7 141.7 381.6 141.5 380.6 C 141.4 379.6 141.2 378.6 141.1 377.6 C 140.9 376.5 140.8 375.5 140.6 374.5 C 140.5 373.5 140.4 372.4 140.2 371.4 C 140.1 370.4 140.0 369.4 139.9 368.4 C 139.7 367.3 139.6 366.3 139.4 365.3 C 139.3 364.4 139.1 363.4 139.0 362.5 C 138.8 361.6 138.7 360.8 138.6 360.1 C 138.5 359.4 138.4 358.6 138.4 358.3" stroke-width="3.2"/>
+            <path d="M 142.9 479.1 C 142.6 478.9 141.9 478.7 141.2 478.3 C 140.6 478.0 139.8 477.5 139.2 477.0 C 138.5 476.4 137.7 475.8 137.1 475.0 C 136.6 474.2 136.0 473.4 135.6 472.5 C 135.2 471.6 134.9 470.6 134.6 469.6 C 134.4 468.6 134.3 467.6 134.2 466.7 C 134.1 465.7 134.1 464.7 134.1 463.9 C 134.1 463.1 134.2 462.3 134.2 461.6 C 134.2 461.0 134.3 460.3 134.3 460.1" stroke-width="3.2"/>
+            <path d="M 110.0 436.1 C 110.0 436.4 110.1 437.3 110.2 438.0 C 110.2 438.8 110.3 439.7 110.3 440.6 C 110.4 441.6 110.4 442.6 110.5 443.6 C 110.6 444.6 110.6 445.6 110.7 446.6 C 110.8 447.6 111.0 448.7 111.1 449.7 C 111.2 450.7 111.4 451.7 111.5 452.7 C 111.7 453.8 111.8 454.8 112.0 455.8 C 112.1 456.8 112.3 457.8 112.5 458.8 C 112.8 459.7 113.1 460.7 113.4 461.6 C 113.8 462.4 114.2 463.2 114.6 463.8 C 115.0 464.5 115.6 465.1 115.8 465.4" stroke-width="3.2"/>
+          </g>
+        </svg>
+
+        <!-- Stephen Photo (Cutout) -->
+        <img src="assets/images/stephen_hero_cutout.png" alt="Stephen" class="hero-portrait-img" id="hero-portrait-img">
+      </div>
+
+      <!-- Top Right: Interactive {{ first name | }} with Blinking Vertical Line -->
+      <div class="hero-name-badge-wrapper">
+        <div class="name-badge-interactive" id="name-badge-container">
+          <span class="bracket-open">{{</span>
+          <div class="input-inline-container">
+            <span class="custom-name-text" id="custom-name-display">first name</span>
+            <input type="text" id="visitor-name-input" class="visitor-name-input" maxlength="20" placeholder="" autocomplete="off" spellcheck="false">
+            <span class="blinking-cursor" id="blinking-cursor"></span>
+          </div>
+          <span class="bracket-close">}}</span>
+        </div>
+      </div>
+
+      <!-- Bottom Right: Subtitle & STEPHEN -->
+      <div class="hero-word-stephen">
+        <p class="hero-subtitle-tag">A DESIGNER/DEVELOPER/MAKER</p>
+        <h1 class="bold-hero-title">STEPHEN</h1>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 4. ABOUT SECTION (Reference: 6th picture)                 -->
+  <!-- ========================================================= -->
+  <section class="about-section" id="about">
+    <div class="about-container">
+      
+      <!-- Left: Stephen's Picture (Reference: 12th picture, layout from 6th picture) -->
+      <div class="about-image-col">
+        <div class="about-img-frame">
+          <img src="assets/images/stephen_about_12.jpg" alt="Stephen - Designer & Developer" class="about-portrait-img">
+          <!-- Gradient overlay for smooth bottom-blending fade matching 6th picture -->
+          <div class="about-img-fade"></div>
+        </div>
+      </div>
+
+      <!-- Right: Story & Bio -->
+      <div class="about-content-col">
+        <!-- Metadata Tag -->
+        <div class="section-meta-tag">
+          <span class="meta-square"></span>
+          <span class="meta-text">// THE PERSON BEHIND THE CODE</span>
+        </div>
+
+        <!-- Big Headline -->
+        <h2 class="about-headline">
+          <span class="headline-dark">I'M YOUR PERSON</span>
+          <span class="headline-purple">TO GET SH*T DONE.</span>
+        </h2>
+
+        <!-- Story Paragraphs -->
+        <div class="about-text-body">
+          <p class="about-para lead">
+            While studying Information Technology, I developed an interest in design and development. I experimented with a variety of creative fields over time, such as graphic design, web design, and video editing, each of which contributed to my journey in a unique way.
+          </p>
+
+          <!-- Accordion Expandable Portion -->
+          <div class="about-expanded-story" id="about-expanded-story">
+            <p class="about-para">
+              I'm learning to keep up with the constant changes in technology. I used to write code by hand, but I'm now utilizing AI tools to improve my workflow and learning process. I think it's critical to grasp the principles while keeping an open mind to novel approaches.
+            </p>
+            <p class="about-para">
+              My present objective is to advance my design abilities and eventually become a full-stack developer. I'm learning more about back-end development while improving my front-end skills. I intend to offer graphic design, web design, and video editing services along the way.
+            </p>
+            <p class="about-para">
+              I enjoy exploring ideas, experimenting with different tools, and finding creative ways to solve problems. I'm someone who learns best through hands-on experience, constantly challenging myself to step outside my comfort zone. I believe there's always something new to discover, and I see every project, mistake, and experience as an opportunity to grow both creatively and technically.
+            </p>
+          </div>
+        </div>
+
+        <!-- Read Full Story / Show Less Toggle Button -->
+        <button type="button" class="btn-read-story" id="btn-toggle-story">
+          <span class="btn-story-text" id="story-btn-text">READ FULL STORY</span>
+          <svg class="story-arrow-icon" id="story-arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 5. KINETIC SCROLLING TEXT (References: 9th & 10th picture)-->
+  <!-- ========================================================= -->
+  <section class="kinetic-scroll-section" id="kinetic-scroll">
+    <div class="kinetic-sticky">
+      <div class="kinetic-stage">
+
+        <!-- LEFT: pinned statement -->
+        <div class="kinetic-left">
+          <span class="hint-label">CORE DISCIPLINES &amp; SPECIALTIES</span>
+          <h2 class="kinetic-heading">I DESIGN, BUILD &amp; EDIT THE GOOD STUFF</h2>
+          <p class="kinetic-copy">
+            I've designed interfaces from scratch. I've turned rough ideas into websites that actually work.
+            i've cut raw footage into something people want to watch. name it, i've probably touched it.
+            if not, eh, i'll just figure it out. I don't do mediocre.
+          </p>
+          <a href="#contact" class="kinetic-cta">[ PUT ME TO WORK ]</a>
+        </div>
+
+        <!-- RIGHT: words rise as you scroll, sharp at the top, blurred at the bottom -->
+        <div class="kinetic-right" id="kinetic-right">
+          <div class="kinetic-words-track" id="kinetic-words-track">
+            <div class="kinetic-word-row"><h3 class="kinetic-display-text">DESIGNING</h3></div>
+            <div class="kinetic-word-row"><h3 class="kinetic-display-text">UI/UX</h3></div>
+            <div class="kinetic-word-row"><h3 class="kinetic-display-text">WEBSITE</h3></div>
+            <div class="kinetic-word-row"><h3 class="kinetic-display-text">EDITING</h3></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 6. TECHNICAL SKILLS & STACK -->
+  <!-- ========================================================= -->
+  <section class="stack-section" id="stack">
+    <div class="stack-container">
+      
+      <!-- Accordion Header Card (Reference: 7th picture) -->
+      <div class="stack-accordion-header" id="stack-toggle-header" role="button" tabindex="0" aria-expanded="false">
+        <div class="stack-header-left">
+          <span class="stack-square-tag"></span>
+          <span class="stack-sub-label">SKILL GROUPS</span>
+          <h3 class="stack-title-text" id="stack-header-title">EXPLORE TECHNICAL SKILLS &amp; STACK</h3>
+        </div>
+        <div class="stack-header-right">
+          <span class="stack-count">20 Tools</span>
+          <svg class="stack-chevron" id="stack-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Collapsible Tools Grid Container (Reference: 8th picture) -->
+      <div class="stack-panel-content" id="stack-panel-content">
+        <div class="stack-groups-wrapper">
+
+          <!-- 1. Frontend & Mobile -->
+          <div class="stack-category-group">
+            <h4 class="category-title">
+              <span class="cat-bullet">•</span> FRONTEND &amp; MOBILE
+            </h4>
+            <div class="tools-grid">
+              <!-- HTML -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 2L5.6 20L12 22L18.4 20L20 2H4Z" fill="#E44D26"/>
+                    <path d="M12 3.8V20.2L17 18.6L18.3 3.8H12Z" fill="#F16529"/>
+                    <path d="M8.2 6.8H15.8L15.6 9H8.4L8.7 12.2H15.3L14.9 16.2L12 17L9.1 16.2L8.9 14H6.7L7.1 18.2L12 19.6L16.9 18.2L17.5 6.8H8.2Z" fill="white"/>
+                  </svg>
+                </div>
+                <span class="tool-name">HTML</span>
+              </div>
+
+              <!-- CSS -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 2L5.6 20L12 22L18.4 20L20 2H4Z" fill="#1572B6"/>
+                    <path d="M12 3.8V20.2L17 18.6L18.3 3.8H12Z" fill="#33A9DC"/>
+                    <path d="M8.2 6.8H15.8L15.6 9H8.4L8.7 12.2H15.3L14.9 16.2L12 17L9.1 16.2L8.9 14H6.7L7.1 18.2L12 19.6L16.9 18.2L17.5 6.8H8.2Z" fill="white"/>
+                  </svg>
+                </div>
+                <span class="tool-name">CSS</span>
+              </div>
+
+              <!-- Javascript -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect width="24" height="24" rx="4" fill="#F7DF1E"/>
+                    <path d="M7 17.5V11.5H9.2V15.5C9.2 16.8 8.5 17.5 7 17.5ZM13 17.5C11.5 17.5 10.5 16.6 10.5 15.2H12.7C12.7 15.7 13.1 16 13.7 16C14.3 16 14.7 15.7 14.7 15.2C14.7 13.8 10.5 14.2 10.5 11.5C10.5 10.2 11.7 9.5 13.2 9.5C14.6 9.5 15.6 10.3 15.6 11.8H13.4C13.4 11.3 13.1 11 12.5 11C12 11 11.6 11.3 11.6 11.8C11.6 13.1 15.8 12.7 15.8 15.4C15.8 16.8 14.6 17.5 13 17.5Z" fill="#000000"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Javascript</span>
+              </div>
+
+              <!-- Kotlin -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <defs>
+                      <linearGradient id="kotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#C757BC"/>
+                        <stop offset="50%" stop-color="#7F52FF"/>
+                        <stop offset="100%" stop-color="#00AFF0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M21 3H3V21H21L12 12L21 3Z" fill="url(#kotGrad)"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Kotlin</span>
+              </div>
+
+              <!-- Dart -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M4.5 3.5L12 2L20.5 10.5L13.5 17.5L4.5 3.5Z" fill="#0175C2"/>
+                    <path d="M12 21.5L4.5 14L13.5 5L21 12.5L12 21.5Z" fill="#02569B"/>
+                    <path d="M8 20L4.5 16.5L10 11L13.5 14.5L8 20Z" fill="#29B6F6"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Dart</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Backend & Database -->
+          <div class="stack-category-group">
+            <h4 class="category-title">
+              <span class="cat-bullet">•</span> BACKEND &amp; DATABASE
+            </h4>
+            <div class="tools-grid">
+              <!-- Python -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M11.9 2C8.6 2 8.7 3.4 8.7 3.4L8.7 5.1H12.2V5.6H5.4C5.4 5.6 2.3 5.3 2.3 8.8C2.3 12.3 5.1 12.1 5.1 12.1H6.8V10.4C6.8 10.4 6.7 8.4 8.8 8.4H12.1C12.1 8.4 14 8.4 14 6.5V3.5C14 3.5 14.3 2 11.9 2ZM10.2 3.5C10.6 3.5 11 3.9 11 4.3C11 4.7 10.6 5.1 10.2 5.1C9.8 5.1 9.4 4.7 9.4 4.3C9.4 3.9 9.8 3.5 10.2 3.5Z" fill="#3776AB"/>
+                    <path d="M12.1 22C15.4 22 15.3 20.6 15.3 20.6L15.3 18.9H11.8V18.4H18.6C18.6 18.4 21.7 18.7 21.7 15.2C21.7 11.7 18.9 11.9 18.9 11.9H17.2V13.6C17.2 13.6 17.3 15.6 15.2 15.6H11.9C11.9 15.6 10 15.6 10 17.5V20.5C10 20.5 9.7 22 12.1 22ZM13.8 20.5C13.4 20.5 13 20.1 13 19.7C13 19.3 13.4 18.9 13.8 18.9C14.2 18.9 14.6 19.3 14.6 19.7C14.6 20.1 14.2 20.5 13.8 20.5Z" fill="#FFD43B"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Python</span>
+              </div>
+
+              <!-- Django -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect width="24" height="24" rx="4" fill="#092E20"/>
+                    <path d="M8.2 6H10.5V14.2C10.5 16.5 9.4 17.8 7.3 17.8C6.6 17.8 5.8 17.6 5.2 17.2L5.8 15.5C6.2 15.8 6.7 16 7.2 16C8.1 16 8.5 15.4 8.5 14.2V6H8.2ZM12.2 8.5C12.2 7.7 12.8 7 13.6 7C14.4 7 15.1 7.7 15.1 8.5C15.1 9.4 14.4 10 13.6 10C12.8 10 12.2 9.4 12.2 8.5ZM12.4 11.2H14.8V17.5H12.4V11.2Z" fill="white"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Django</span>
+              </div>
+
+              <!-- Node.js -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L21 7.2V16.8L12 22L3 16.8V7.2L12 2Z" fill="#339933"/>
+                    <path d="M12 6.5L17.5 9.7V14.3L12 17.5L6.5 14.3V9.7L12 6.5Z" fill="#539E43"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Node.js</span>
+              </div>
+
+              <!-- Java -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 18C12 18 15 19 18 18C16 19.5 11 20 7 20C4 20 6 18.5 8 18Z" fill="#5382A1"/>
+                    <path d="M6 15C10 15 14 16 17 15C15 16.8 9 17.5 5 17C3 16.8 4 15.5 6 15Z" fill="#E76F00"/>
+                    <path d="M10 3C11 5 9 7 12 9C13 7 12 5 10 3Z" fill="#5382A1"/>
+                    <path d="M14 4C15 6 13 8 15 11C16 9 15 6 14 4Z" fill="#E76F00"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Java</span>
+              </div>
+
+              <!-- PHP -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect width="24" height="24" rx="12" fill="#777BB4"/>
+                    <text x="12" y="16" fill="white" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="bold" text-anchor="middle">PHP</text>
+                  </svg>
+                </div>
+                <span class="tool-name">PHP</span>
+              </div>
+
+              <!-- SQL -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <ellipse cx="12" cy="6" rx="8" ry="3" fill="#00758F"/>
+                    <path d="M4 6V12C4 13.6 7.6 15 12 15C16.4 15 20 13.6 20 12V6" stroke="#00758F" stroke-width="2"/>
+                    <path d="M4 12V18C4 19.6 7.6 21 12 21C16.4 21 20 19.6 20 18V12" stroke="#00758F" stroke-width="2"/>
+                  </svg>
+                </div>
+                <span class="tool-name">SQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Cloud & DevOps -->
+          <div class="stack-category-group">
+            <h4 class="category-title">
+              <span class="cat-bullet">•</span> CLOUD &amp; DEVOPS
+            </h4>
+            <div class="tools-grid">
+              <!-- Git -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M21.7 10.9L13.1 2.3C12.7 1.9 12 1.9 11.6 2.3L9.6 4.3L12.1 6.8C12.8 6.6 13.6 6.8 14.1 7.4C14.6 7.9 14.8 8.7 14.6 9.4L17 11.8C17.7 11.6 18.5 11.8 19 12.3C19.8 13.1 19.8 14.3 19 15.1C18.2 15.9 17 15.9 16.2 15.1C15.7 14.6 15.5 13.9 15.7 13.2L13.5 11V16.7C13.7 17 13.8 17.4 13.8 17.8C13.8 19 12.8 20 11.6 20C10.4 20 9.4 19 9.4 17.8C9.4 17 9.8 16.3 10.4 15.9V9.8L7.9 7.3L2.3 12.9C1.9 13.3 1.9 14 2.3 14.4L10.9 23C11.3 23.4 12 23.4 12.4 23L21.7 13.7C22.1 13.3 22.1 12.6 21.7 10.9Z" fill="#F05032"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Git</span>
+              </div>
+
+              <!-- GitHub -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017C2 16.446 4.87 20.198 8.84 21.52C9.34 21.61 9.52 21.3 9.52 21.03C9.52 20.79 9.51 20.16 9.51 19.32C6.73 19.92 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.52 18.45 8.97 18.02 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.41 6.01 9.52 6.65 8.82C6.55 8.57 6.21 7.55 6.75 6.19C6.75 6.19 7.59 5.92 9.5 7.21C10.3 6.99 11.15 6.88 12 6.88C12.85 6.88 13.7 6.99 14.5 7.21C16.41 5.92 17.25 6.19 17.25 6.19C17.79 7.55 17.45 8.57 17.35 8.82C17.99 9.52 18.38 10.41 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.49 17.33 14.49 18.27C14.49 19.61 14.48 20.69 14.48 21.02C14.48 21.3 14.66 21.62 15.17 21.52C19.14 20.19 22 16.44 22 12.017C22 6.484 17.522 2 12 2Z" fill="#181717"/>
+                  </svg>
+                </div>
+                <span class="tool-name">GitHub</span>
+              </div>
+
+              <!-- Vercel -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L23 21H1L12 2Z" fill="#000000"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Vercel</span>
+              </div>
+
+              <!-- AWS -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect width="24" height="24" rx="4" fill="#232F3E"/>
+                    <path d="M6 14.5C9 17.5 15 17.5 18 14.5" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M16.5 13.5L18.5 14.5L16.5 16.5" fill="#FF9900"/>
+                    <text x="12" y="11" fill="white" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="bold" text-anchor="middle">AWS</text>
+                  </svg>
+                </div>
+                <span class="tool-name">AWS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Design & Video Edit Tools -->
+          <div class="stack-category-group">
+            <h4 class="category-title">
+              <span class="cat-bullet">•</span> DESIGN &amp; VIDEO EDIT TOOLS
+            </h4>
+            <div class="tools-grid">
+              <!-- Figma -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 2H12V8H8C6.34 8 5 6.66 5 5C5 3.34 6.34 2 8 2Z" fill="#F24E1E"/>
+                    <path d="M12 2H16C17.66 2 19 3.34 19 5C19 6.66 17.66 8 16 8H12V2Z" fill="#FF7262"/>
+                    <path d="M12 8H16C17.66 8 19 9.34 19 11C19 12.66 17.66 14 16 14H12V8Z" fill="#1ABCFE"/>
+                    <path d="M8 8H12V14H8C6.34 14 5 12.66 5 11C5 9.34 6.34 8 8 8Z" fill="#A259FF"/>
+                    <path d="M8 14H12V17C12 18.66 10.66 20 9 20C7.34 20 6 18.66 6 17C6 15.34 7.34 14 8 14Z" fill="#0ACF83"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Figma</span>
+              </div>
+
+              <!-- Canva -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" fill="#00C4CC"/>
+                    <text x="12" y="16" fill="white" font-family="'Plus Jakarta Sans', cursive, sans-serif" font-size="12" font-weight="bold" font-style="italic" text-anchor="middle">C</text>
+                  </svg>
+                </div>
+                <span class="tool-name">Canva</span>
+              </div>
+
+              <!-- Photoshop -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect width="24" height="24" rx="4" fill="#001E36"/>
+                    <text x="12" y="16" fill="#31A8FF" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Ps</text>
+                  </svg>
+                </div>
+                <span class="tool-name">Photoshop</span>
+              </div>
+
+              <!-- Capcut -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect width="24" height="24" rx="4" fill="#000000"/>
+                    <path d="M5 8L12 12L5 16V8Z" fill="white"/>
+                    <path d="M19 8L12 12L19 16V8Z" fill="white"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Capcut</span>
+              </div>
+
+              <!-- Alight Motion -->
+              <div class="tool-card">
+                <div class="tool-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" fill="#202428"/>
+                    <circle cx="12" cy="12" r="6" stroke="#00E676" stroke-width="2.5" fill="none"/>
+                    <path d="M10 9L15 12L10 15V9Z" fill="#00E676"/>
+                  </svg>
+                </div>
+                <span class="tool-name">Alight Motion</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 7. PROJECTS SECTION (References: 13th, 14th, 15th, 16th) -->
+  <!-- ========================================================= -->
+  <section class="projects-section" id="projects">
+    <!-- Tall scroll track: the stage inside stays pinned while you scroll through it -->
+    <div class="projects-track" id="projects-track">
+      <div class="projects-stage" id="projects-stage">
+
+        <h2 class="projects-main-heading">WORKS I'M SUPER<br>PROUD OF.</h2>
+        <p class="projects-scroll-hint" id="projects-scroll-hint">SCROLL &darr;</p>
+
+        <!-- Cards are rendered by script.js and fly in one by one as you scroll -->
+        <div class="projects-cards-layer" id="projects-grid"></div>
+
+        <!-- Empty state for categories without projects yet -->
+        <div class="category-empty-state" id="category-empty-state" style="display: none;">
+          <div class="empty-icon-box">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#EE3826" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+          </div>
+          <h3 class="empty-title">SHOWCASE UNDER CURATION</h3>
+          <p class="empty-subtitle">New high-impact visual design work and video edits will be published here shortly!</p>
+        </div>
+
+        <!-- Category filter -->
+        <div class="project-categories-bar">
+          <button type="button" class="category-tab active" data-category="all">All Work</button>
+          <button type="button" class="category-tab" data-category="web">Web Design &amp; Dev</button>
+          <button type="button" class="category-tab" data-category="graphic">Graphic Designs</button>
+          <button type="button" class="category-tab" data-category="video">Video Editing</button>
+        </div>
+
+        <div class="projects-counter" id="projects-counter" aria-hidden="true">00 / 00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 8. PROJECT DETAIL MODAL (Reference: 16th picture)         -->
+  <!-- ========================================================= -->
+  <div class="project-modal-backdrop" id="project-modal" aria-hidden="true">
+    <div class="project-modal-box">
+      <!-- Modal Close Button -->
+      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close Project Modal">✕</button>
+
+      <!-- Top: Main Project Screenshot Preview & Carousel Controls -->
+      <div class="modal-preview-stage">
+        <div class="modal-main-img-container">
+          <img src="" alt="Project Preview" id="modal-active-img" class="modal-active-img">
+          
+          <!-- Prev / Next Navigation Arrows -->
+          <button type="button" class="carousel-arrow arrow-prev" id="carousel-prev-btn" aria-label="Previous Image">‹</button>
+          <button type="button" class="carousel-arrow arrow-next" id="carousel-next-btn" aria-label="Next Image">›</button>
+        </div>
+
+        <!-- Thumbnail Strip & Slide Counter (Reference: 16th picture) -->
+        <div class="modal-carousel-nav">
+          <div class="modal-thumbnails-strip" id="modal-thumbnails-strip">
+            <!-- Dynamically populated with 5 (or user-defined) image thumbnails -->
+          </div>
+          
+          <div class="modal-carousel-meta">
+            <!-- Dash indicators -->
+            <div class="carousel-dash-indicators" id="carousel-dash-indicators"></div>
+            <!-- Counter e.g. 01 / 05 -->
+            <div class="carousel-page-counter" id="carousel-page-counter">01 / 05</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Project Content & Details (Bottom Half) -->
+      <div class="modal-details-panel">
+        <!-- Number & Subtitle Tag e.g. 01 // FULL-STACK WEB APP -->
+        <div class="modal-tag-row">
+          <span class="modal-tag-number" id="modal-project-num">01</span>
+          <span class="modal-tag-slash">//</span>
+          <span class="modal-tag-type" id="modal-project-tag">FULL-STACK WEB APP</span>
+        </div>
+
+        <!-- Big Bold Title -->
+        <h2 class="modal-project-title" id="modal-project-title">PROJECT TITLE</h2>
+
+        <!-- Description -->
+        <p class="modal-project-desc" id="modal-project-desc">Description text...</p>
+
+        <!-- Action Links: View Project & Source Code (GitHub / Figma) -->
+        <div class="modal-actions-row">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-modal-action btn-view-project" id="modal-view-project-link">
+            <span id="modal-view-project-label">VIEW PROJECT</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-modal-action btn-source-code" id="modal-source-code-link">
+            <svg class="github-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017C2 16.446 4.87 20.198 8.84 21.52C9.34 21.61 9.52 21.3 9.52 21.03C9.52 20.79 9.51 20.16 9.51 19.32C6.73 19.92 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.52 18.45 8.97 18.02 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.41 6.01 9.52 6.65 8.82C6.55 8.57 6.21 7.55 6.75 6.19C6.75 6.19 7.59 5.92 9.5 7.21C10.3 6.99 11.15 6.88 12 6.88C12.85 6.88 13.7 6.99 14.5 7.21C16.41 5.92 17.25 6.19 17.25 6.19C17.79 7.55 17.45 8.57 17.35 8.82C17.99 9.52 18.38 10.41 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.49 17.33 14.49 18.27C14.49 19.61 14.48 20.69 14.48 21.02C14.48 21.3 14.66 21.62 15.17 21.52C19.14 20.19 22 16.44 22 12.017C22 6.484 17.522 2 12 2Z"/>
+            </svg>
+            <span>SOURCE CODE</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Languages & Technologies Badges -->
+        <div class="modal-stack-tags" id="modal-stack-tags">
+          <!-- Populated by script.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 9. FAQ SECTION                                            -->
+  <!-- ========================================================= -->
+  <section class="faq-section" id="faq">
+    <div class="faq-container">
+
+      <!-- Left: tag + big heading -->
+      <div class="faq-left">
+        <div class="faq-meta">
+          <span>// GOT QUERIES?</span>
+          <span class="faq-meta-line"></span>
+        </div>
+        <h2 class="faq-main-heading">
+          <span class="faq-line">BEFORE</span>
+          <span class="faq-line">YOU</span>
+          <span class="faq-line">ASK...</span>
+        </h2>
+      </div>
+
+      <!-- Right: accordion -->
+      <div class="faq-list" id="faq-list">
+
+        <div class="faq-item">
+          <h3 class="faq-question-wrap">
+            <button type="button" class="faq-question" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">
+              <span class="faq-q-text">How soon are you ready to start?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
+            <div class="faq-answer-inner">
+              <p>Yesterday.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question-wrap">
+            <button type="button" class="faq-question" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+              <span class="faq-q-text">What's the fastest way to get your best work?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
+            <div class="faq-answer-inner">
+              <p>I thrive under good mentorship and highly specific feedback. I have a natural drive to learn and improve. Give me the guidance and direction I need, then trust me to take initiative and execute.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question-wrap">
+            <button type="button" class="faq-question" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+              <span class="faq-q-text">Do you offer commission services?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
+            <div class="faq-answer-inner">
+              <p>Yes, I do. I offer services such as: web design (responsive landing pages, portfolio sites, and UI designs), graphic design (publication materials, posters, flyers, and event graphics), and video editing (event recaps, highlight reels, and cinematic edits).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question-wrap">
+            <button type="button" class="faq-question" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
+              <span class="faq-q-text">Who should not hire you?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
+            <div class="faq-answer-inner">
+              <p>If you're looking for someone who simply agrees with everything or blindly follows instructions, I'm not the right fit. I value independent thinking, honest communication, and working with people who have the courage to stand by their convictions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question-wrap">
+            <button type="button" class="faq-question" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
+              <span class="faq-q-text">What do you still suck at?</span>
+              <span class="faq-toggle" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5">
+            <div class="faq-answer-inner">
+              <p>Right now I'm still honing my frontend and backend skills, so I can say that I still suck at it at the moment. I'm easily excited and just as easily bored. I'm drawn to new ideas, challenges, and anything that keeps my curiosity alive. Think of me as gasoline parked next to scented candles: full of energy, unpredictable, and never short of sparks.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 10. GET IN TOUCH / FOOTER                                 -->
+  <!--   TODO: replace the email text in #footer-email (JS syncs -->
+  <!--   the mailto links + copy button) and the social URLs.    -->
+  <!-- ========================================================= -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="footer-container">
+
+      <div class="section-meta-tag footer-reveal">
+        <span class="meta-square"></span>
+        <span class="meta-text">// GET IN TOUCH</span>
+      </div>
+      <h2 class="contact-main-heading footer-reveal">LET'S BUILD SOMETHING EXTRAORDINARY.</h2>
+
+      <div class="footer-cta">
+        <p class="footer-cta-desc footer-reveal">Have a vision in mind? I'm always open to new ideas, creative challenges, and meaningful collaborations. Let's turn possibilities into reality and build something that makes an impact.</p>
+        <div class="footer-cta-actions footer-reveal">
+          <a href="mailto:stephenbula07@gmail.com" class="btn-footer-primary" id="btn-lets-talk">
+            <span>LET'S TALK</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <button type="button" class="btn-footer-secondary" id="btn-copy-email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="12" height="12" rx="2"></rect>
+              <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"></path>
+            </svg>
+            <span id="copy-email-text">COPY EMAIL</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-divider footer-reveal"></div>
+
+      <div class="footer-info-row">
+        <div class="footer-info-block footer-reveal">
+          <span class="footer-info-label">DIRECT INQUIRIES</span>
+          <a href="mailto:stephenbula07@gmail.com" class="footer-email" id="footer-email">stephenbula07@gmail.com</a>
+        </div>
+
+        <div class="footer-info-block footer-reveal">
+          <span class="footer-info-label">SOCIAL CONNECTIONS</span>
+          <div class="footer-socials">
+            <a href="https://github.com/Vyshanix" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017C2 16.446 4.87 20.198 8.84 21.52C9.34 21.61 9.52 21.3 9.52 21.03C9.52 20.79 9.51 20.16 9.51 19.32C6.73 19.92 6.14 17.97 6.14 17.97C5.68 16.81 5.03 16.5 5.03 16.5C4.12 15.88 5.1 15.9 5.1 15.9C6.1 15.97 6.63 16.93 6.63 16.93C7.52 18.45 8.97 18.02 9.54 17.76C9.63 17.11 9.89 16.67 10.17 16.42C7.95 16.17 5.62 15.31 5.62 11.5C5.62 10.41 6.01 9.52 6.65 8.82C6.55 8.57 6.21 7.55 6.75 6.19C6.75 6.19 7.59 5.92 9.5 7.21C10.3 6.99 11.15 6.88 12 6.88C12.85 6.88 13.7 6.99 14.5 7.21C16.41 5.92 17.25 6.19 17.25 6.19C17.79 7.55 17.45 8.57 17.35 8.82C17.99 9.52 18.38 10.41 18.38 11.5C18.38 15.32 16.04 16.16 13.81 16.41C14.17 16.72 14.49 17.33 14.49 18.27C14.49 19.61 14.48 20.69 14.48 21.02C14.48 21.3 14.66 21.62 15.17 21.52C19.14 20.19 22 16.44 22 12.017C22 6.484 17.522 2 12 2Z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/stephen-james-bula-4906b427a/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/stphnbla" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.008 10.125 11.854v-8.363H7.078v-3.491h3.047V9.41c0-3.025 1.792-4.696 4.533-4.696 1.312 0 2.686.236 2.686.236v2.973h-1.513c-1.491 0-1.956.931-1.956 1.887v2.263h3.328l-.532 3.491h-2.796v8.363C19.612 23.081 24 18.092 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <a href="#hero" class="btn-back-top footer-reveal" aria-label="Back to top">
+          <span>BACK TO TOP</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer-divider footer-reveal"></div>
+
+      <div class="footer-bottom-bar footer-reveal">
+        <div class="footer-logo">SB.</div>
+        <p class="footer-copy">&copy; 2026 Stephen Bula. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
