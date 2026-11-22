@@ -399,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const t = Math.max(0, Math.min(1, (f - 0.3) / 0.7)); // 0 sharp zone, 1 deepest blur
       const text = row.firstElementChild;
       const grey = Math.round(18 + t * 150);           // #121214 -> light grey
-      text.style.filter = 'blur(' + (t * 9).toFixed(1) + 'px)';
+      text.style.filter = 'blur(' + (t * 4).toFixed(1) + 'px)';
       text.style.opacity = (1 - t * 0.55).toFixed(2);
       text.style.color = 'rgb(' + grey + ',' + grey + ',' + (grey + 2) + ')';
     });
